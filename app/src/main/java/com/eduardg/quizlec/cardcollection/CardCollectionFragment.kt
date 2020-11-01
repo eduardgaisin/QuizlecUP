@@ -34,6 +34,7 @@ class CardCollectionFragment : Fragment() {
                 ViewModelProviders.of(this, viewModelFactory).get(CardCollectionViewModel::class.java)
 
         val adapter = CardAdapter()
+        adapter.outViewModel = cardCollectionViewModel
         binding.cardCollectionRecyclerView.adapter = adapter
 
         cardCollectionViewModel.allCards.observe(viewLifecycleOwner, Observer {

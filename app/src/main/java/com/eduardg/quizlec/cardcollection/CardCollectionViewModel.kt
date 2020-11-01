@@ -50,4 +50,12 @@ class CardCollectionViewModel(
         }
     }
 
+    fun deleteCard(cardId: Long){
+        uiScope.launch {
+            withContext(Dispatchers.IO){
+                database.clearCard(cardId)
+            }
+        }
+    }
+
 }
