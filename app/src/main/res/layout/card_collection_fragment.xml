@@ -14,32 +14,47 @@
         android:layout_height="match_parent"
         tools:context=".cardcollection.CardCollectionFragment">
 
-        <ScrollView
+<!--        <ScrollView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/front_text_edit_text"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/card_collection_text"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@{cardCollectionViewModel.cardCollectionString}"-->
+<!--                android:textColor="@color/black"/>-->
+
+<!--        </ScrollView>-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/card_collection_recycler_view"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@+id/front_text_edit_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/card_collection_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@{cardCollectionViewModel.cardCollectionString}"
-                android:textColor="@color/black"/>
-
-        </ScrollView>
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/card_item" />
 
         <EditText
             android:id="@+id/front_text_edit_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/back_text_edit_text"
-            app:layout_constraintBottom_toTopOf="@+id/add_card_button"
             android:inputType="textPersonName"
-            android:tooltipText="Front text"/>
+            android:tooltipText="Front text"
+            app:layout_constraintBottom_toTopOf="@+id/add_card_button"
+            app:layout_constraintEnd_toStartOf="@id/back_text_edit_text"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/back_text_edit_text"

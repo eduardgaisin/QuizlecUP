@@ -13,7 +13,7 @@ class CardCollectionViewModel(
 
     private var viewModelJob = Job()
 
-    private val allCards = database.getAllCards()
+    val allCards = database.getAllCards()
 
     var cardCollectionString = Transformations.map(allCards){allCards ->
         formatCards(allCards)
