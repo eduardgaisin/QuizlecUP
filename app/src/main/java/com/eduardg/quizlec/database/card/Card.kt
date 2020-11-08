@@ -9,9 +9,12 @@ data class Card(
         @PrimaryKey(autoGenerate = true)
         var cardId: Long = 0L,
 
-        @ColumnInfo(name = "front_text")
-        var frontText: String = "0",
+        @ColumnInfo(name = "term")
+        var term: String = "0",
 
-        @ColumnInfo(name = "back_text")
-        var backText: String = "0"
+        @ColumnInfo(name = "definition")
+        var definition: String = "0",
+
+        @ColumnInfo(name = "collection_id")
+        var collectionId: Long = 0L
 )

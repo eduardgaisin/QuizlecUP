@@ -1,14 +1,11 @@
 package com.eduardg.quizlec.cardcollection
 
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.eduardg.quizlec.R
 import com.eduardg.quizlec.database.card.Card
 import com.eduardg.quizlec.databinding.CardItemBinding
 
@@ -30,8 +27,8 @@ class CardAdapter: RecyclerView.Adapter<CardAdapter.ViewHolder>(){
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = data[position]
-        holder.frontText.text = item.frontText
-        holder.backText.text = item.backText
+        holder.term.text = item.term
+        holder.definition.text = item.definition
         holder.deleteButton.setOnClickListener {
             outViewModel!!.deleteCard(item.cardId)
         }
@@ -42,9 +39,9 @@ class CardAdapter: RecyclerView.Adapter<CardAdapter.ViewHolder>(){
     }
 
     class ViewHolder(val binding: CardItemBinding): RecyclerView.ViewHolder(binding.root){
-        val frontText: TextView = binding.frontCardText
-        val backText: TextView = binding.backCardText
-        val deleteButton: Button = binding.deleteCardButton
+        val term: TextView = binding.frontCardText
+        val definition: TextView = binding.backCardText
+        val deleteButton: ImageButton = binding.deleteCardButton
     }
 
 }
