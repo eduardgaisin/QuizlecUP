@@ -8,13 +8,12 @@ import kotlinx.coroutines.*
 
 class CardCollectionViewModel(
         val database: CardDatabaseDao,
-        application: Application) : AndroidViewModel(application) {
+        application: Application,
+        val cardCollectionId: Long) : AndroidViewModel(application) {
 
     private var viewModelJob = Job()
 
-    public var collectionId: Long = 0
-
-    val allCards = database.getAllCardsId(collectionId)
+    val allCards = database.getAllCardsId(cardCollectionId)
 
 //    var cardCollectionString = Transformations.map(allCards){allCards ->
 //        formatCards(allCards)
@@ -38,7 +37,7 @@ class CardCollectionViewModel(
     fun addCard(frontText: String, backText: String){
         uiScope.launch {
             withContext(Dispatchers.IO) {
-                database.insert(Card(0, frontText, backText, collectionId))
+                database.insert(Card(0, frontText, backText, cardCollectionId))
             }
         }
     }

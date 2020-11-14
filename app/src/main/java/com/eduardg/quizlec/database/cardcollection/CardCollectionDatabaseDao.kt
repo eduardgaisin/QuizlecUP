@@ -19,6 +19,9 @@ interface CardCollectionDatabaseDao{
     @Query(value = "SELECT * FROM card_collection_list_table ORDER BY cardCollectionId ASC")
     fun getAllCardCollections(): LiveData<MutableList<CardCollection>>
 
+    @Query(value = "DELETE FROM card_collection_list_table WHERE cardCollectionId = :key")
+    fun deleteCardCollection(key: Long)
+
     @Query(value = "DELETE FROM card_collection_list_table")
     fun clear()
 }

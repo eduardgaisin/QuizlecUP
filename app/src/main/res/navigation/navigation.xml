@@ -9,7 +9,11 @@
         android:id="@+id/cardCollectionFragment"
         android:name="com.eduardg.quizlec.cardcollection.CardCollectionFragment"
         android:label="CardCollectionFragment"
-        tools:layout = "@layout/card_collection_fragment" />
+        tools:layout = "@layout/card_collection_fragment" >
+        <argument
+            android:name="cardCollectionId"
+            app:argType="long" />
+    </fragment>
     <fragment
         android:id="@+id/cardCollectionListFragment"
         android:name="com.eduardg.quizlec.cardcollectionlist.CardCollectionListFragment"
@@ -18,5 +22,47 @@
         <action
             android:id="@+id/action_cardCollectionListFragment_to_cardCollectionFragment"
             app:destination="@id/cardCollectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseTrainingFragment"
+        android:name="com.eduardg.quizlec.training.choosetraining.ChooseTrainingFragment"
+        android:label="ChooseTrainingFragment"
+        tools:layout="@layout/choose_training_fragment">
+        <action
+            android:id="@+id/action_chooseTrainingFragment_to_chooseWordTrainingFragment"
+            app:destination="@id/chooseWordTrainingFragment" />
+        <action
+            android:id="@+id/action_chooseTrainingFragment_to_writeWordTrainingFragment"
+            app:destination="@id/writeWordTrainingFragment" />
+        <argument
+            android:name="cardCollectionId"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseWordTrainingFragment"
+        android:name="com.eduardg.quizlec.training.chooseword.ChooseWordTrainingFragment"
+        android:label="ChooseWordTrainingFragment"
+        tools:layout="@layout/choose_word_training_fragment">
+        <argument
+            android:name="cardCollectionId"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/writeWordTrainingFragment"
+        android:name="com.eduardg.quizlec.training.writeword.WriteWordTrainingFragment"
+        android:label="WriteWordTrainingFragment"
+        tools:layout="@layout/write_word_training_fragment">
+        <argument
+            android:name="cardCollectionId"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseCardCollectionFragment"
+        android:name="com.eduardg.quizlec.training.choosecardcollection.ChooseCardCollectionFragment"
+        android:label="ChooseCardCollectionFragment"
+        tools:layout="@layout/choose_card_collection_fragment">
+        <action
+            android:id="@+id/action_chooseCardCollectionFragment_to_chooseTrainingFragment"
+            app:destination="@id/chooseTrainingFragment" />
     </fragment>
 </navigation>

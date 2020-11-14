@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
@@ -26,12 +27,16 @@ class CardCollectionFragment : Fragment() {
 
         val application = requireNotNull(this.activity).application
 
+        val args = CardCollectionFragmentArgs.fromBundle(requireArguments())
+
         val dataSource = CardDatabase.getInstance(application).cardDatabaseDao
 
-        val viewModelFactory = CardCollectionViewModelFactory(dataSource, application)
+        val viewModelFactory = CardCollectionViewModelFactory(dataSource, application, args.cardCollectionId)
 
         val cardCollectionViewModel =
                 ViewModelProviders.of(this, viewModelFactory).get(CardCollectionViewModel::class.java)
+
+//        cardCollectionViewModel.collectionId = args.cardCollectionId
 
         val adapter = CardAdapter()
         adapter.outViewModel = cardCollectionViewModel

@@ -22,7 +22,7 @@ abstract class CardCollectionDatabase : RoomDatabase(){
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         CardCollectionDatabase::class.java,
-                        "cards_database"
+                        "card_collections_database"
                     ).fallbackToDestructiveMigration().build()
                 }
                 return instance

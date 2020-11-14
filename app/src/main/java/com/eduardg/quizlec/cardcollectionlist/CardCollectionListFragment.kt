@@ -40,6 +40,7 @@ class CardCollectionListFragment : Fragment() {
 
         val adapter = CardCollectionAdapter()
         binding.cardCollectionListRecyclerView.adapter = adapter
+        adapter.outViewModel = cardCollectionListViewModel
 
 
         cardCollectionListViewModel.allCardCollections.observe(viewLifecycleOwner, Observer {
