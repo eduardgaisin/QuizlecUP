@@ -9,8 +9,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.eduardg.quizlec.R
 import com.eduardg.quizlec.databinding.ChooseTrainingFragmentBinding
-import com.eduardg.quizlec.training.ChooseTrainingFragmentArgs
-import com.eduardg.quizlec.training.ChooseTrainingFragmentDirections
+//import com.eduardg.quizlec.training.ChooseTrainingFragmentArgs
+//import com.eduardg.quizlec.training.ChooseTrainingFragmentDirections
 
 class ChooseTrainingFragment : Fragment() {
 

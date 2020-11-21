@@ -35,6 +35,7 @@ class CardCollectionAdapter: RecyclerView.Adapter<CardCollectionAdapter.ViewHold
         holder.cardCollectionName.text = item.name
         holder.cardCollectionDescription.text = item.description
         holder.editButton.setOnClickListener {view ->
+//            Log.i("tetete", item.cardCollectionId.toString())
             view.findNavController().navigate(CardCollectionListFragmentDirections.actionCardCollectionListFragmentToCardCollectionFragment(item.cardCollectionId))
         }
         holder.deleteButton.setOnClickListener{
