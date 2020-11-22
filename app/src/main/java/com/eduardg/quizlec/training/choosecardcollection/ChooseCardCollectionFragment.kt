@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.eduardg.quizlec.R
@@ -32,7 +33,7 @@ class ChooseCardCollectionFragment : Fragment() {
         chooseCardCollectionViewModel =
                 ViewModelProviders.of(this, viewModelFactory).get(ChooseCardCollectionViewModel::class.java)
 
-        val adapter = ChooseCardCollectionAdapter()
+        val adapter = ChooseCardCollectionAdapter(parentFragmentManager)
         binding.chooseCardCollectionRecyclerView.adapter = adapter
 //        adapter.outViewModel = chooseCardCollectionViewModel
 
