@@ -40,56 +40,24 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toTopOf="@+id/front_text_edit_text"
+            app:layout_constraintBottom_toTopOf="@+id/add_card_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:listitem="@layout/card_item" />
 
-        <EditText
-            android:id="@+id/front_text_edit_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:tooltipText="Front text"
-            app:layout_constraintBottom_toTopOf="@+id/add_card_button"
-            app:layout_constraintEnd_toStartOf="@id/back_text_edit_text"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/back_text_edit_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            app:layout_constraintStart_toEndOf="@id/front_text_edit_text"
-            app:layout_constraintBottom_toTopOf="@+id/add_card_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:tooltipText="Back text" />
-
-        <Button
+        <ImageButton
             android:id="@+id/add_card_button"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/clear_all_cards_button"
-            app:layout_constraintStart_toStartOf="parent"
-            android:text="Add card"
-            android:textColor="#00EE00"
-            android:textAllCaps="false"/>
-
-        <Button
-            android:id="@+id/clear_all_cards_button"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="@android:dimen/app_icon_size"
+            android:background="#81d4fa"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_add_r"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/add_card_button"
-            android:text="Clear cards"
-            android:textColor="#EE0000"
-            android:textAllCaps="false"
-            android:onClick="@{() -> cardCollectionViewModel.clearAllCards()}"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_collection_recycler_view" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

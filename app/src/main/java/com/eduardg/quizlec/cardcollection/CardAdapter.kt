@@ -2,16 +2,14 @@ package com.eduardg.quizlec.cardcollection
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.eduardg.quizlec.database.card.Card
 import com.eduardg.quizlec.databinding.CardItemBinding
 
-class CardAdapter: RecyclerView.Adapter<CardAdapter.ViewHolder>(){
-
-    var outViewModel: CardCollectionViewModel? = null
+class CardAdapter(val fragmentManager: FragmentManager, val viewModel: CardCollectionViewModel): RecyclerView.Adapter<CardAdapter.ViewHolder>(){
 
     var data = listOf<Card>()
         set(value){
@@ -30,7 +28,10 @@ class CardAdapter: RecyclerView.Adapter<CardAdapter.ViewHolder>(){
         holder.term.text = item.term
         holder.definition.text = item.definition
         holder.deleteButton.setOnClickListener {
-            outViewModel!!.deleteCard(item.cardId)
+            this.viewModel!!.deleteCard(item.cardId)
+        }
+        holder.editButton.setOnClickListener {
+            EditCardDialog(item, this.viewModel).show(fragmentManager , "EditCardDialog")
         }
     }
 
@@ -42,6 +43,7 @@ class CardAdapter: RecyclerView.Adapter<CardAdapter.ViewHolder>(){
         val term: TextView = binding.frontCardText
         val definition: TextView = binding.backCardText
         val deleteButton: ImageButton = binding.deleteCardButton
+        val editButton = binding.editCardConstraintLayout
     }
 
 }

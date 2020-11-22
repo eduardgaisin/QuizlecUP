@@ -50,4 +50,12 @@ class CardCollectionViewModel(
         }
     }
 
+    fun updateCard(card: Card){
+        uiScope.launch{
+            withContext(Dispatchers.IO){
+                database.update(card)
+            }
+        }
+    }
+
 }

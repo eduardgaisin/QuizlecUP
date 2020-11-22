@@ -1,14 +1,11 @@
 package com.eduardg.quizlec.cardcollection
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.eduardg.quizlec.R
@@ -38,8 +35,7 @@ class CardCollectionFragment : Fragment() {
 
 //        cardCollectionViewModel.collectionId = args.cardCollectionId
 
-        val adapter = CardAdapter()
-        adapter.outViewModel = cardCollectionViewModel
+        val adapter = CardAdapter(parentFragmentManager, cardCollectionViewModel)
         binding.cardCollectionRecyclerView.adapter = adapter
 
         cardCollectionViewModel.allCards.observe(viewLifecycleOwner, Observer {
@@ -51,9 +47,10 @@ class CardCollectionFragment : Fragment() {
         binding.setLifecycleOwner(this)
 
         binding.addCardButton.setOnClickListener {
-            cardCollectionViewModel.addCard(binding.frontTextEditText.text.toString(), binding.backTextEditText.text.toString())
-            binding.frontTextEditText.text.clear()
-            binding.backTextEditText.text.clear()
+            AddCardDialog(cardCollectionViewModel).show(parentFragmentManager , "AddCardDialog")
+//            cardCollectionViewModel.addCard(binding.frontTextEditText.text.toString(), binding.backTextEditText.text.toString())
+//            binding.frontTextEditText.text.clear()
+//            binding.backTextEditText.text.clear()
         }
 
         return binding.root
