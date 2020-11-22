@@ -26,14 +26,6 @@ class CardCollectionViewModel(
 
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-//    private fun formatCards(cards: List<Card>): String{
-//        var beautifulString: String = ""
-//        cards.forEach {
-//            beautifulString += cards.indexOf(it).toString() + " " + it.term + " " + it.definition + "\n"
-//        }
-//        return beautifulString
-//    }
-
     fun addCard(frontText: String, backText: String){
         uiScope.launch {
             withContext(Dispatchers.IO) {

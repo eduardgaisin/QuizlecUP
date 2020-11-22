@@ -41,10 +41,11 @@ class ChooseWordTrainingFragment : Fragment() {
         chooseWordTrainingViewModel =
                 ViewModelProviders.of(this, viewModelFactory).get(ChooseWordTrainingViewModel::class.java)
         binding.setLifecycleOwner(this)
-        
+
         chooseWordTrainingViewModel.allCards.observe(viewLifecycleOwner, Observer {
 
         })
+
         chooseWordTrainingViewModel.questionTerm.observe(viewLifecycleOwner, Observer {
             binding.questionTermText.text = chooseWordTrainingViewModel.questionTerm.value
         })
@@ -61,7 +62,6 @@ class ChooseWordTrainingFragment : Fragment() {
             binding.fourthAnswer.text = chooseWordTrainingViewModel.fourthAnswer.value
         })
 
-        chooseWordTrainingViewModel.nextQuestion()
 
         binding.firstAnswer.setOnClickListener{
             checkAnswer(0)
@@ -76,13 +76,13 @@ class ChooseWordTrainingFragment : Fragment() {
             checkAnswer(3)
         }
 
-
+        chooseWordTrainingViewModel.nextQuestion()
         return binding.root
     }
 
     private fun checkAnswer(userAnswer: Int){
 //        chooseWordTrainingViewModel.answer(userAnswer)
-        var isRight: Boolean = chooseWordTrainingViewModel.answer(userAnswer) ?: false
+        var isRight: Boolean = chooseWordTrainingViewModel.answer(userAnswer)
         if(isRight){
             Toast.makeText(activity, "Right", Toast.LENGTH_SHORT).show()
         }else{

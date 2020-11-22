@@ -17,7 +17,6 @@ class ChooseWordTrainingViewModel(
         val cardCollectionId: Long) : AndroidViewModel(application) {
 
     private var viewModelJob = Job()
-    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     val allCards = database.getAllCardsId(cardCollectionId)
 //    private val allCards = database.getAllCards()
@@ -33,10 +32,7 @@ class ChooseWordTrainingViewModel(
         super.onCleared()
         viewModelJob.cancel()
     }
-
-    init{
-        nextQuestion()
-    }
+    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     fun nextQuestion(){
         currentCard.value = allCards.value?.random() ?: Card()
@@ -55,7 +51,7 @@ class ChooseWordTrainingViewModel(
             var wrongAnswer: String = ""
             while(true){
                 wrongAnswer = allCards.value?.random()?.definition ?: ""
-                if(allCards.value!!.size <= 1) break
+//                if(allCards.value!!.size <= 1) break
                 if(wrongAnswer != currentCard.value?.definition){
                     break
                 }

@@ -37,7 +37,6 @@ class WriteWordTrainingFragment : Fragment() {
                 ViewModelProviders.of(this, viewModelFactory).get(WriteWordTrainingViewModel::class.java)
         binding.setLifecycleOwner(this)
 
-        writeWordTrainingViewModel.allCards.observe(viewLifecycleOwner, Observer {  })
 
         writeWordTrainingViewModel.questionTerm.observe(viewLifecycleOwner, Observer {
             binding.questionTerm.text = writeWordTrainingViewModel.questionTerm.value
@@ -47,6 +46,10 @@ class WriteWordTrainingFragment : Fragment() {
             checkAnswer(binding.answerEditText.text.toString())
             binding.answerEditText.text.clear()
         }
+
+        writeWordTrainingViewModel.allCards.observe(viewLifecycleOwner, Observer {  })
+
+        writeWordTrainingViewModel.nextQuestion()
 
         return binding.root
     }

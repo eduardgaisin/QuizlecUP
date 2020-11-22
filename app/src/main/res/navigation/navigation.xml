@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_host_fragment"
-    app:startDestination="@id/chooseCardCollectionFragment">
+    app:startDestination="@id/testMenuFragment">
 
     <fragment
         android:id="@+id/cardCollectionFragment"
@@ -64,5 +64,17 @@
         <action
             android:id="@+id/action_chooseCardCollectionFragment_to_chooseTrainingFragment"
             app:destination="@id/chooseTrainingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/testMenuFragment"
+        android:name="com.eduardg.quizlec.TestMenuFragment"
+        android:label="TestMenuFragment"
+        tools:layout = "@layout/fragment_test_menu">
+        <action
+            android:id="@+id/action_testMenuFragment_to_chooseCardCollectionFragment"
+            app:destination="@id/chooseCardCollectionFragment" />
+        <action
+            android:id="@+id/action_testMenuFragment_to_cardCollectionListFragment"
+            app:destination="@id/cardCollectionListFragment" />
     </fragment>
 </navigation>

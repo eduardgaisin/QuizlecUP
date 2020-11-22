@@ -21,10 +21,6 @@ class WriteWordTrainingViewModel(
     private var currentCard: Card = Card()
     var questionTerm = MutableLiveData<String>()
 
-    init{
-        nextQuestion()
-    }
-
     override fun onCleared() {
         super.onCleared()
         viewModelJob.cancel()
