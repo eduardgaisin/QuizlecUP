@@ -9,52 +9,68 @@
             type="com.eduardg.quizlec.database.card.Card" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/edit_card_constraint_layout"
-        android:layout_width="match_parent"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/material_card_view"
         android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:elevation="1dp"
+        style="@style/ShapeAppearance.Quizlec.MediumComponent"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/linear_layout_border">
-
-        <TextView
-            android:id="@+id/front_card_text"
-            android:layout_width="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:fontFamily="serif"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toTopOf="@+id/back_card_text"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="TestFront" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/back_card_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="serif"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/front_card_text"
-            tools:text="TestBack" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp">
 
-        <ImageButton
-            android:id="@+id/delete_card_button"
-            android:layout_width="@android:dimen/app_icon_size"
-            android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="#00FFFFFF"
-            android:scaleType="fitCenter"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_cancel" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/card_term"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text=""
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        tools:text="TestName"
+                        />
+
+                    <TextView
+                        android:paddingStart="8dp"
+                        android:id="@+id/card_definition"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="?android:attr/textColorSecondary"
+                        tools:text="Test"/>
+                </LinearLayout>
+
+                <Button
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:id="@+id/edit_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="edit" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
 </layout>

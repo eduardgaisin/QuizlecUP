@@ -49,7 +49,8 @@
             app:layout_constraintEnd_toStartOf="@id/second_answer"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/question_term_text"
-            tools:text="1 answer" />
+            tools:text="1 answer"
+            android:elevation="8dp"/>
 
         <TextView
             android:id="@+id/second_answer"
@@ -65,7 +66,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/first_answer"
             app:layout_constraintTop_toTopOf="@+id/first_answer"
-            tools:text="2 answer" />
+            tools:text="2 answer"
+            android:elevation="8dp" />
 
         <TextView
             android:id="@+id/third_answer"
@@ -83,7 +85,8 @@
             app:layout_constraintEnd_toStartOf="@id/fourth_answer"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/first_answer"
-            tools:text="3 answer" />
+            tools:text="3 answer"
+            android:elevation="8dp" />
 
         <TextView
             android:id="@+id/fourth_answer"
@@ -99,7 +102,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/third_answer"
             app:layout_constraintTop_toTopOf="@+id/third_answer"
-            tools:text="4 answer" />
+            tools:text="4 answer"
+            android:elevation="8dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

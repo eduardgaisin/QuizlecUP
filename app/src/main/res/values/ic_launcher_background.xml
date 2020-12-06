@@ -16,7 +16,5 @@
 -->
 
 <resources>
-    <array name="preloaded_fonts" translatable="false">
-        <item>@font/roboto</item>
-    </array>
+    <color name="ic_launcher_background">#FFFFFF</color>
 </resources>

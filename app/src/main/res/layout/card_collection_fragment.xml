@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -9,56 +9,37 @@
             type="com.eduardg.quizlec.cardcollection.CardCollectionViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".cardcollection.CardCollectionFragment">
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-<!--        <ScrollView-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="0dp"-->
-<!--            app:layout_constraintBottom_toTopOf="@+id/front_text_edit_text"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent">-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/card_collection_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toTopOf="@+id/add_card_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/card_item" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/card_collection_text"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@{cardCollectionViewModel.cardCollectionString}"-->
-<!--                android:textColor="@color/black"/>-->
+        </LinearLayout>
 
-<!--        </ScrollView>-->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_card_floating_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="16dp"
+            android:contentDescription="Add card"
+            app:srcCompat="@drawable/ic_plus_24"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/card_collection_recycler_view"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toTopOf="@+id/add_card_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/card_item" />
-
-        <ImageButton
-            android:id="@+id/add_card_button"
-            android:layout_width="0dp"
-            android:layout_height="@android:dimen/app_icon_size"
-            android:background="#81d4fa"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_add_r"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/card_collection_recycler_view" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

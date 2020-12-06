@@ -1,84 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        style="@style/ShapeAppearance.Quizlec.MediumComponent">
 
-        <EditText
-            android:id="@+id/term_edit_card_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/linear_layout_border"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@id/definition_edit_card_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="rest" />
 
-        <EditText
-            android:id="@+id/definition_edit_card_text"
-            android:layout_width="0dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/term_edit_card_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/linear_layout_border"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@id/confirm_edit_card_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/term_edit_card_text"
-            tools:text="test" />
+            android:theme="@style/ShapeAppearance.Quizlec.SmallComponent">
 
-        <TextView
-            android:id="@+id/confirm_edit_card_button"
-            android:layout_width="0dp"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/term_edit_card_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:ems="10"
+                android:fontFamily="@font/roboto"
+                android:hint="term"
+                android:inputType="textPersonName" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/definition_edit_card_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/choose_word_right_border"
-            android:fontFamily="@font/roboto"
-            android:text="Confirm"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/cancel_edit_card_button"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/definition_edit_card_text" />
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp">
 
-        <TextView
-            android:id="@+id/cancel_edit_card_button"
-            android:layout_width="0dp"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/definition_edit_card_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:ems="10"
+                android:fontFamily="@font/roboto"
+                android:hint="definition"
+                android:inputType="textPersonName" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="32dp"
-            android:background="@drawable/choose_word_wrong_border"
-            android:fontFamily="@font/roboto"
-            android:text="Cancel"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/confirm_edit_card_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/confirm_edit_card_button"
-            app:layout_constraintTop_toTopOf="@+id/confirm_edit_card_button" />
+            android:layout_weight="1"
+            android:paddingVertical="4dp"
+            android:orientation="horizontal">
 
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <Button
+                    android:id="@+id/confirm_edit_card_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="confirm" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
+
+                <Button
+                    android:id="@+id/cancel_edit_card_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="cancel" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 </layout>

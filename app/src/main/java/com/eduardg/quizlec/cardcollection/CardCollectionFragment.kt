@@ -46,7 +46,7 @@ class CardCollectionFragment : Fragment() {
 
         binding.setLifecycleOwner(this)
 
-        binding.addCardButton.setOnClickListener {
+        binding.addCardFloatingButton.setOnClickListener {
             AddCardDialog(cardCollectionViewModel).show(parentFragmentManager , "AddCardDialog")
 //            cardCollectionViewModel.addCard(binding.frontTextEditText.text.toString(), binding.backTextEditText.text.toString())
 //            binding.frontTextEditText.text.clear()

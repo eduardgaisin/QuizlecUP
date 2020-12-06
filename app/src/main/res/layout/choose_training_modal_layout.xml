@@ -6,9 +6,10 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:background="#FFFFFF">
 
         <LinearLayout
@@ -20,11 +21,8 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/linear_layout_border"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@id/choose_word_linear_layout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:elevation="4dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/write_word_text"
@@ -51,11 +49,8 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/linear_layout_border"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/write_word_linear_layout">
+            android:elevation="4dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/choose_word_text"
@@ -74,5 +69,5 @@
                 app:srcCompat="@drawable/ic_next_1" />
         </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </layout>

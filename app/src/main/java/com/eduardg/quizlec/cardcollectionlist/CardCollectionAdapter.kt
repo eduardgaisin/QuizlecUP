@@ -1,20 +1,17 @@
 package com.eduardg.quizlec.cardcollectionlist
 
-import android.util.Log
+import android.transition.AutoTransition
+import android.transition.TransitionManager
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
+import androidx.core.view.isGone
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.eduardg.quizlec.cardcollection.CardAdapter
-import com.eduardg.quizlec.cardcollection.CardCollectionViewModel
-import com.eduardg.quizlec.database.card.Card
 import com.eduardg.quizlec.database.cardcollection.CardCollection
 import com.eduardg.quizlec.databinding.CardCollectionItemBinding
-import com.eduardg.quizlec.databinding.CardItemBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
-class CardCollectionAdapter: RecyclerView.Adapter<CardCollectionAdapter.ViewHolder>(){
+class CardCollectionAdapter(): RecyclerView.Adapter<CardCollectionAdapter.ViewHolder>(){
 
     var outViewModel: CardCollectionListViewModel? = null
 
@@ -34,13 +31,30 @@ class CardCollectionAdapter: RecyclerView.Adapter<CardCollectionAdapter.ViewHold
         val item = data[position]
         holder.cardCollectionName.text = item.name
         holder.cardCollectionDescription.text = item.description
-        holder.editButton.setOnClickListener {view ->
+        holder.editButton.setOnClickListener { view ->
 //            Log.i("tetete", item.cardCollectionId.toString())
             view.findNavController().navigate(CardCollectionListFragmentDirections.actionCardCollectionListFragmentToCardCollectionFragment(item.cardCollectionId))
         }
-        holder.deleteButton.setOnClickListener{
-            outViewModel!!.deleteCardCollection(item.cardCollectionId)
+        holder.card.setOnClickListener {
+            TransitionManager.beginDelayedTransition(holder.card, AutoTransition())
+            holder.binding.cardCollectionDescriptionLinearLayout.isGone =
+                    !holder.binding.cardCollectionDescriptionLinearLayout.isGone
         }
+        holder.card.setOnLongClickListener {
+            MaterialAlertDialogBuilder(holder.card.context)
+                    .setMessage("Delete card collection?")
+                    .setPositiveButton("CANCEL") { _, _ ->
+
+                    }
+                    .setNegativeButton("DELETE") { _, _ ->
+                        outViewModel?.deleteCardCollection(item.cardCollectionId)
+                    }
+                    .show()
+            true
+        }
+//        holder.deleteButton.setOnClickListener{
+//            outViewModel!!.deleteCardCollection(item.cardCollectionId)
+//        }
     }
 
     override fun getItemCount(): Int {
@@ -51,6 +65,6 @@ class CardCollectionAdapter: RecyclerView.Adapter<CardCollectionAdapter.ViewHold
         var cardCollectionName = binding.cardCollectionName
         var cardCollectionDescription = binding.cardCollectionDescription
         var editButton = binding.editButton
-        var deleteButton = binding.deleteCardCollectionButton
+        var card = binding.card
     }
 }

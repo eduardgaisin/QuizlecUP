@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.eduardg.quizlec.R
+import com.eduardg.quizlec.cardcollection.AddCardDialog
 import com.eduardg.quizlec.cardcollection.CardAdapter
 import com.eduardg.quizlec.cardcollection.CardCollectionViewModel
 import com.eduardg.quizlec.cardcollection.CardCollectionViewModelFactory
@@ -37,7 +38,6 @@ class CardCollectionListFragment : Fragment() {
         val cardCollectionListViewModel =
             ViewModelProviders.of(this, viewModelFactory).get(CardCollectionListViewModel::class.java)
 
-
         val adapter = CardCollectionAdapter()
         binding.cardCollectionListRecyclerView.adapter = adapter
         adapter.outViewModel = cardCollectionListViewModel
@@ -52,11 +52,9 @@ class CardCollectionListFragment : Fragment() {
         binding.setLifecycleOwner(this)
 
 
-        binding.addCardCollectionButton.setOnClickListener {
-            cardCollectionListViewModel.addCardCollection(binding.collectionNameTextEdit.text.toString(),
-                    binding.collectionDescriptionTextEdit.text.toString())
+        binding.addCardFloatingButton.setOnClickListener {
+            AddCardCollectionDialog(cardCollectionListViewModel).show(parentFragmentManager , "AddCardDialog")
         }
-
 
 
         return binding.root
