@@ -44,7 +44,7 @@ class WriteWordTrainingFragment : Fragment() {
 
         binding.sendAnswer.setOnClickListener {
             checkAnswer(binding.answerEditText.text.toString())
-            binding.answerEditText.text.clear()
+            binding.answerEditText.text?.clear()
         }
 
         writeWordTrainingViewModel.allCards.observe(viewLifecycleOwner, Observer {  })

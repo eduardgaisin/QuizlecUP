@@ -15,7 +15,6 @@
 
         <Button
             android:id="@+id/trainingButton"
-            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -28,7 +27,6 @@
 
         <Button
             android:id="@+id/cardCollectionButton"
-            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
