@@ -17,8 +17,8 @@
         android:focusable="true"
         android:elevation="1dp"
         style="@style/ShapeAppearance.Quizlec.MediumComponent"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
         android:layout_marginStart="2dp"
         android:layout_marginEnd="2dp">
         <LinearLayout

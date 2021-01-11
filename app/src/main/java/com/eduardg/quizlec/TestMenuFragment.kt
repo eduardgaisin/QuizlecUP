@@ -28,6 +28,10 @@ class TestMenuFragment : Fragment() {
             findNavController().navigate(TestMenuFragmentDirections.actionTestMenuFragmentToCardCollectionListFragment())
         }
 
+        binding.testButton.setOnClickListener {
+            findNavController().navigate(TestMenuFragmentDirections.actionTestMenuFragmentToTestScreenSelectCollectionFragment())
+        }
+
         return binding.root
     }
 

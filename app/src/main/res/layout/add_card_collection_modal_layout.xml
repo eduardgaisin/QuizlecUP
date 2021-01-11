@@ -6,10 +6,11 @@
     </data>
 
     <LinearLayout
+        android:id="@+id/add_card_collection_dialog"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/ShapeAppearance.Quizlec.MediumComponent">
+        style="@style/ShapeAppearance.Quizlec.BottomSheetComponent">
 
 
         <com.google.android.material.textfield.TextInputLayout

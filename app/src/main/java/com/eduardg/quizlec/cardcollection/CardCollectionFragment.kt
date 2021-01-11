@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.RecyclerView
 import com.eduardg.quizlec.R
 import com.eduardg.quizlec.database.card.CardDatabase
 import com.eduardg.quizlec.databinding.CardCollectionFragmentBinding
+import com.google.android.material.transition.MaterialContainerTransform
 
 class CardCollectionFragment : Fragment() {
 
@@ -45,6 +47,8 @@ class CardCollectionFragment : Fragment() {
         binding.cardCollectionViewModel = cardCollectionViewModel
 
         binding.setLifecycleOwner(this)
+
+
 
         binding.addCardFloatingButton.setOnClickListener {
             AddCardDialog(cardCollectionViewModel).show(parentFragmentManager , "AddCardDialog")

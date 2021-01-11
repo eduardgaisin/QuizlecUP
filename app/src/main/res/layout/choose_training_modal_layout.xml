@@ -10,7 +10,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#FFFFFF">
+        android:background="#FFFFFF"
+        style="@style/ShapeAppearance.Quizlec.BottomSheetComponent">
 
         <LinearLayout
             android:id="@+id/write_word_linear_layout"

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isGone
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
 import com.eduardg.quizlec.database.cardcollection.CardCollection
 import com.eduardg.quizlec.databinding.CardCollectionItemBinding

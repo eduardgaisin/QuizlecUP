@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable
-            name="cardCollection"
-            type="com.eduardg.quizlec.database.cardcollection.CardCollection" />
+
     </data>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
-        android:elevation="1dp"
-        style="@style/ShapeAppearance.Quizlec.MediumComponent"
-        android:layout_marginBottom="4dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginStart="2dp"
-        android:layout_marginEnd="2dp">
+        android:layout_marginEnd="2dp"
+        style="@style/ShapeAppearance.Quizlec.MediumComponent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,21 +31,23 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/cardCollectionName"
-                    android:layout_width="0dp"
+                    android:id="@+id/cardCollectionNameText"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:text=""
                     android:textAppearance="?attr/textAppearanceHeadline6"
-                    tools:text="TestName"
-                    />
+                    tools:text="TestName" />
 
                 <Button
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:id="@+id/edit_button"
+                    android:id="@+id/to_test_button"
+                    style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="edit" />
+                    android:layout_gravity="center_vertical"
+                    android:text="to test"
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -54,19 +55,22 @@
                 android:id="@+id/card_collection_description_linear_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:visibility="gone"
                 android:padding="16dp">
                 <TextView
-                    android:id="@+id/card_collection_description"
+                    android:id="@+id/cardCollectionDescriptionText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?attr/textAppearanceBody2"
                     android:textColor="?android:attr/textColorSecondary"
+                    android:layout_marginBottom="8dp"
                     tools:text="Test"/>
             </LinearLayout>
 
         </LinearLayout>
 
-    </com.google.android.material.card.MaterialCardView>
 
+
+    </com.google.android.material.card.MaterialCardView>
 </layout>

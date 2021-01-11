@@ -10,10 +10,11 @@ import com.eduardg.quizlec.R
 import com.eduardg.quizlec.cardcollection.CardCollectionViewModel
 import com.eduardg.quizlec.databinding.AddCardCollectionModalLayoutBinding
 import com.eduardg.quizlec.databinding.AddCardModalLayoutBinding
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 // dismiss() to hide dialog
 
-class AddCardCollectionDialog(val viewModel: CardCollectionListViewModel): DialogFragment() {
+class AddCardCollectionDialog(val viewModel: CardCollectionListViewModel): BottomSheetDialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 //        getDialog()!!.getWindow()?.setBackgroundDrawableResource()
@@ -35,7 +36,7 @@ class AddCardCollectionDialog(val viewModel: CardCollectionListViewModel): Dialo
 
     override fun onStart() {
         super.onStart()
-        val width = (resources.displayMetrics.widthPixels * 0.85).toInt()
+        val width = (resources.displayMetrics.widthPixels * 1).toInt()
         val height = (resources.displayMetrics.heightPixels * 0.40).toInt()
         dialog!!.window?.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
     }

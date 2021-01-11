@@ -24,21 +24,6 @@
             app:destination="@id/cardCollectionFragment" />
     </fragment>
     <fragment
-        android:id="@+id/chooseTrainingFragment"
-        android:name="com.eduardg.quizlec.training.choosetraining.ChooseTrainingFragment"
-        android:label="ChooseTrainingFragment"
-        tools:layout="@layout/choose_training_fragment">
-        <action
-            android:id="@+id/action_chooseTrainingFragment_to_chooseWordTrainingFragment"
-            app:destination="@id/chooseWordTrainingFragment" />
-        <action
-            android:id="@+id/action_chooseTrainingFragment_to_writeWordTrainingFragment"
-            app:destination="@id/writeWordTrainingFragment" />
-        <argument
-            android:name="cardCollectionId"
-            app:argType="long" />
-    </fragment>
-    <fragment
         android:id="@+id/chooseWordTrainingFragment"
         android:name="com.eduardg.quizlec.training.chooseword.ChooseWordTrainingFragment"
         android:label="ChooseWordTrainingFragment"
@@ -46,6 +31,10 @@
         <argument
             android:name="cardCollectionId"
             app:argType="long" />
+        <action
+            android:id="@+id/action_chooseWordTrainingFragment_to_trainingResultFragment"
+            app:destination="@id/trainingResultFragment"
+            app:popUpTo="@id/chooseCardCollectionFragment" />
     </fragment>
     <fragment
         android:id="@+id/writeWordTrainingFragment"
@@ -55,15 +44,16 @@
         <argument
             android:name="cardCollectionId"
             app:argType="long" />
+        <action
+            android:id="@+id/action_writeWordTrainingFragment_to_trainingResultFragment"
+            app:destination="@id/trainingResultFragment"
+            app:popUpTo="@id/chooseCardCollectionFragment" />
     </fragment>
     <fragment
         android:id="@+id/chooseCardCollectionFragment"
         android:name="com.eduardg.quizlec.training.choosecardcollection.ChooseCardCollectionFragment"
         android:label="ChooseCardCollectionFragment"
         tools:layout="@layout/choose_card_collection_fragment">
-        <action
-            android:id="@+id/action_chooseCardCollectionFragment_to_chooseTrainingFragment"
-            app:destination="@id/chooseTrainingFragment" />
         <action
             android:id="@+id/action_chooseCardCollectionFragment_to_writeWordTrainingFragment"
             app:destination="@id/writeWordTrainingFragment" />
@@ -82,5 +72,44 @@
         <action
             android:id="@+id/action_testMenuFragment_to_cardCollectionListFragment"
             app:destination="@id/cardCollectionListFragment" />
+        <action
+            android:id="@+id/action_testMenuFragment_to_testScreenSelectCollectionFragment"
+            app:destination="@id/testScreenSelectCollectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/testScreenSelectCollectionFragment"
+        android:name="com.eduardg.quizlec.testscreen.TestScreenSelectCollectionFragment"
+        android:label="TestScreenSelectCollectionFragment"
+        tools:layout="@layout/test_screen_select_collection_fragment">
+        <action
+            android:id="@+id/action_testScreenSelectCollectionFragment_to_testScreen"
+            app:destination="@id/testScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/testScreen"
+        android:name="com.eduardg.quizlec.testscreen.TestScreen"
+        android:label="TestScreen"
+        tools:layout="@layout/test_screen_fragment">
+        <argument
+            android:name="cardColelctionId"
+            app:argType="long"
+            android:defaultValue="0L" />
+    </fragment>
+    <fragment
+        android:id="@+id/trainingResultFragment"
+        android:name="com.eduardg.quizlec.training.TrainingResultFragment"
+        android:label="TrainingResultFragment"
+        tools:layout="@layout/fragment_training_result">
+        <argument
+            android:name="rightAnswer"
+            app:argType="integer" />
+        <argument
+            android:name="allQuestions"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_trainingResultFragment_to_chooseCardCollectionFragment"
+            app:destination="@id/chooseCardCollectionFragment"
+            app:popUpTo="@id/trainingResultFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

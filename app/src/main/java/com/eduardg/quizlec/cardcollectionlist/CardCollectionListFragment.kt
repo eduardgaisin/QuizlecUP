@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.RecyclerView
 import com.eduardg.quizlec.R
 import com.eduardg.quizlec.cardcollection.AddCardDialog
 import com.eduardg.quizlec.cardcollection.CardAdapter
@@ -47,7 +48,6 @@ class CardCollectionListFragment : Fragment() {
             adapter.data = it
         })
 
-
         binding.cardCollectionListViewModel = cardCollectionListViewModel
         binding.setLifecycleOwner(this)
 
@@ -56,8 +56,9 @@ class CardCollectionListFragment : Fragment() {
             AddCardCollectionDialog(cardCollectionListViewModel).show(parentFragmentManager , "AddCardDialog")
         }
 
-
         return binding.root
     }
+
+
 
 }
